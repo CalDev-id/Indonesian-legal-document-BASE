@@ -91,7 +91,7 @@ if __name__ == "__main__":
     preprocessor = Preprocessor()
     # preprocessor.load_data()
 
-    # preprocessor.create_faiss_db("datasets/pp_no_76_thn_2020_ttg_tarif_pnbp_polri.pdf.json", db_name="pp_no_76" )
+    preprocessor.create_faiss_db("datasets/pp_no_76_thn_2020_ttg_tarif_pnbp_polri.pdf.json", db_name="pp_no_76" )
 
     # Preprocessor.search_db(query = "apa jenis penerimaan negara bukan pajak", db_name = "pp_no_76")
-    preprocessor.search_db(query = "apa pengelompokan wilayah pendidikan", db_name = "pp_no_76")
+    # preprocessor.search_db(query = "apa pengelompokan wilayah pendidikan", db_name = "pp_no_76")
