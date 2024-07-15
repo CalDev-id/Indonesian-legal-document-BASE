@@ -59,7 +59,7 @@ class Preprocessor():
             jq_schema=".[]",
             text_content =  False,
             json_lines = False,
-            content_key = "contents"
+            content_key = "content"
         )
         data = loader.load()
         text_splitter = CharacterTextSplitter(
