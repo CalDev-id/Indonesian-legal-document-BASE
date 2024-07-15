@@ -64,7 +64,7 @@ class Preprocessor():
         data = loader.load()
         text_splitter = CharacterTextSplitter(
             chunk_size = 1000,
-            overlap = 0
+            # overlap = 0
         )
         data = text_splitter.split_documents(data)
         return data
