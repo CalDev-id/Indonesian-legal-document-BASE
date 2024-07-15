@@ -56,7 +56,7 @@ class Preprocessor():
     def load_data_json_lib(self, source_dir):
         loader = JSONLoader(
             file_path = source_dir,
-            jq_schema=".[] | {contents: .content}",
+            jq_schema=".[]",
             text_content =  False,
             json_lines = False,
             content_key = "contents"
