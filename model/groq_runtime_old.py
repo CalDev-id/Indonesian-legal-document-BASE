@@ -4,7 +4,7 @@ import os
 from groq import Groq
 
 #prepare the apiKey
-with open('apiKey.txt', 'r') as txt_r:
+with open('api_key.txt', 'r') as txt_r:
     os.environ["GROQ_API_KEY"] = txt_r.readlines()[0]
 
 class GroqRunTime():

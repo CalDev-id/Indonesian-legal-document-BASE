@@ -4,7 +4,7 @@ import os
 from groq import Groq
 
 #prepare the apiKey
-with open('apiKey.txt', 'r') as txt_r:
+with open('api_key.txt', 'r') as txt_r:
     os.environ["GROQ_API_KEY"] = txt_r.readlines()[0]
 
 class GroqRunTime():
@@ -28,7 +28,7 @@ class GroqRunTime():
             ],
             model = "llama3-70b-8192"
             temperature = 0.3
-
+            # repetition_penalty = 0.8,
         )
         return responses
     
@@ -36,32 +36,20 @@ class GroqRunTime():
         groq_run = GroqRunTime()
 
         system_prompt = '''
-        buatlah response yang positif dan akurat.
-        buatlah response dalam bahasa indonesia.
-        tentukan apakah input dari user memiliki sentiment negatif atau positif.
-        apabila positif buatlah response **1**, dan negatif **0**.
+        saya ingin kamu menyimpulkan input user secara akurat.
+        buatlah kesimpulan dalam bahasa indonesia
+        pastikan kesimpulan yang kamu buat sesuai dengan konten yang diberikan oleh user.
 
-        berikut ini contoh yang dapat kamu ikuti:
-
-        Sentence : Hari ini hujan dan menyebalkan.
-        Sentiment : **0**.
-
-        Sentence: Hari ini saya senang karena piknik dengan keluarga.
-        Sentiment : **1**.
-
-        ini akhir dari contoh.
-
-        buatlah response seperti format dibawah ini:
+        ikutilah format dibawah ini saat membuat response :
         Sentence: [disini tempat user memasukkan input sentence].
-        Sentiment: [disini kamu menentukan sentimen yang di input oleh user apakah negatif **0** atau positif **1**].
+        Summary: [disini kamu menuliskan kesimpulan dari input yang diberikan oleh user].
         '''
 
         user_prompt = '''
-            tentukan sentiment dari input user dibawah ini.
-            ikuti instruksi yang diberikan oleh sistem.
-
-            Sentence: Hari ini saya senang sekali karena makan makanan enak.
-            Sentiment:
+        buatlah kesimpulan dari user input:
+        
+        Sentence: Saya ingin membeli sebuah mobil, tetapi saya bingung memilih mobil yang cocok untuk saya.
+        Summary: 
         '''
 
         response = groq_run.generate_response(system_prompt, user_prompt)
