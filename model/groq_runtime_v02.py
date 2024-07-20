@@ -36,20 +36,23 @@ if __name__ == "__main__":
     groq_run = GroqRunTime()
 
     system_prompt = '''
-    saya ingin kamu menyimpulkan input user secara akurat.
-    buatlah kesimpulan dalam bahasa indonesia
-    pastikan kesimpulan yang kamu buat sesuai dengan konten yang diberikan oleh user.
+    saya ingin kamu membuat pertanyaan dari input user.
+    saya ingin kamu membuat response dalam bahasa indonesia.
+    pastikan pertanyaan yang kamu buat sesuai dan jawabannya ada di dalam input user.
 
-    ikutilah format dibawah ini saat membuat response :
-    Sentence: [disini tempat user memasukkan input sentence].
-    Summary: [disini kamu menuliskan kesimpulan dari input yang diberikan oleh user].
+    saat membuat response, ikutilah format dibawah ini:
+    Input: [disini tempat user memasukkan input sentence].
+    Pertanyaan: 
+    1. [disini kamu membuat pertanyaan pertama dari input yang diberikan oleh user].
+    2. [disini kamu membuat pertanyaan kedua dari input yang diberikan oleh user].
+    3. [disini kamu membuat pertanyaan ke-n dari input yang diberikan oleh user].
     '''
 
     user_prompt = '''
-    buatlah kesimpulan dari user input:
-    
-    Sentence: Saya ingin membeli sebuah mobil, tetapi saya bingung memilih mobil yang cocok untuk saya.
-    Summary: 
+    bahwa untuk melaksanakan ketentuan pasal 64 ayat (6),
+    pasal 68 ayat (6), pasal 69 ayat (3), pasal 72 ayat (3)
+    dan pasal 75 undang undang nomor 22 tahun 2009 tentang lalu lintas dan angkutan jalan,
+    telah dikeluarkan  peraturan kepala kepolisian republik indonesia nomor 5 tahun 2012 tentang registrasi dan identifikasi kendaraan bermotor.
     '''
 
     response = groq_run.generate_response(system_prompt, user_prompt)
