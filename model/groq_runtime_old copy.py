@@ -26,32 +26,32 @@ class GroqRunTime():
                     "content": user_prompt
                 }
             ],
-            model = "llama3-70b-8192"
+            model = "llama3-70b-8192",
             temperature = 0.3
             # repetition_penalty = 0.8,
         )
         return responses
     
-    if __name__ == "__main__":
-        groq_run = GroqRunTime()
+if __name__ == "__main__":
+    groq_run = GroqRunTime()
 
-        system_prompt = '''
-        saya ingin kamu menyimpulkan input user secara akurat.
-        buatlah kesimpulan dalam bahasa indonesia
-        pastikan kesimpulan yang kamu buat sesuai dengan konten yang diberikan oleh user.
+    system_prompt = '''
+    saya ingin kamu menyimpulkan input user secara akurat.
+    buatlah kesimpulan dalam bahasa indonesia
+    pastikan kesimpulan yang kamu buat sesuai dengan konten yang diberikan oleh user.
 
-        ikutilah format dibawah ini saat membuat response :
-        Sentence: [disini tempat user memasukkan input sentence].
-        Summary: [disini kamu menuliskan kesimpulan dari input yang diberikan oleh user].
-        '''
+    ikutilah format dibawah ini saat membuat response :
+    Sentence: [disini tempat user memasukkan input sentence].
+    Summary: [disini kamu menuliskan kesimpulan dari input yang diberikan oleh user].
+    '''
 
-        user_prompt = '''
-        buatlah kesimpulan dari user input:
-        
-        Sentence: Saya ingin membeli sebuah mobil, tetapi saya bingung memilih mobil yang cocok untuk saya.
-        Summary: 
-        '''
+    user_prompt = '''
+    buatlah kesimpulan dari user input:
+    
+    Sentence: Saya ingin membeli sebuah mobil, tetapi saya bingung memilih mobil yang cocok untuk saya.
+    Summary: 
+    '''
 
-        response = groq_run.generate_response(system_prompt, user_prompt)
+    response = groq_run.generate_response(system_prompt, user_prompt)
 
-        print(response.choices[0].message.content)
+    print(response.choices[0].message.content)

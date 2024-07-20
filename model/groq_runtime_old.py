@@ -30,38 +30,38 @@ class GroqRunTime():
         )
         return responses
     
-    if __name__ == "__main__":
-        groq_run = GroqRunTime()
+if __name__ == "__main__":
+    groq_run = GroqRunTime()
 
-        system_prompt = '''
-        buatlah response yang positif dan akurat.
-        buatlah response dalam bahasa indonesia.
-        tentukan apakah input dari user memiliki sentiment negatif atau positif.
-        apabila positif buatlah response **1**, dan negatif **0**.
+    system_prompt = '''
+    buatlah response yang positif dan akurat.
+    buatlah response dalam bahasa indonesia.
+    tentukan apakah input dari user memiliki sentiment negatif atau positif.
+    apabila positif buatlah response **1**, dan negatif **0**.
 
-        berikut ini contoh yang dapat kamu ikuti:
+    berikut ini contoh yang dapat kamu ikuti:
 
-        Sentence : Hari ini hujan dan menyebalkan.
-        Sentiment : **0**.
+    Sentence : Hari ini hujan dan menyebalkan.
+    Sentiment : **0**.
 
-        Sentence: Hari ini saya senang karena piknik dengan keluarga.
-        Sentiment : **1**.
+    Sentence: Hari ini saya senang karena piknik dengan keluarga.
+    Sentiment : **1**.
 
-        ini akhir dari contoh.
+    ini akhir dari contoh.
 
-        buatlah response seperti format dibawah ini:
-        Sentence: [disini tempat user memasukkan input sentence].
-        Sentiment: [disini kamu menentukan sentimen yang di input oleh user apakah negatif **0** atau positif **1**].
-        '''
+    buatlah response seperti format dibawah ini:
+    Sentence: [disini tempat user memasukkan input sentence].
+    Sentiment: [disini kamu menentukan sentimen yang di input oleh user apakah negatif **0** atau positif **1**].
+    '''
 
-        user_prompt = '''
-            tentukan sentiment dari input user dibawah ini.
-            ikuti instruksi yang diberikan oleh sistem.
+    user_prompt = '''
+        tentukan sentiment dari input user dibawah ini.
+        ikuti instruksi yang diberikan oleh sistem.
 
-            Sentence: Hari ini saya senang sekali karena makan makanan enak.
-            Sentiment:
-        '''
+        Sentence: Hari ini saya senang sekali karena makan makanan enak.
+        Sentiment:
+    '''
 
-        response = groq_run.generate_response(system_prompt, user_prompt)
+    response = groq_run.generate_response(system_prompt, user_prompt)
 
-        print(response.choices[0].message.content)
+    print(response.choices[0].message.content)
