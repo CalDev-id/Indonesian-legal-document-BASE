@@ -27,6 +27,8 @@ class GroqRunTime():
                 }
             ],
             model = "llama3-70b-8192"
+            temperature = 0.3
+
         )
         return responses
     
