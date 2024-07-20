@@ -1,8 +1,10 @@
 import requests
 import os
 import json
+import sys
 
 from model.groq_runtime_v03 import GroqRunTime
+from utils.prompt import *
 
 #prepare the apiKey
 with open('api_key.txt', 'r') as txt_r:
@@ -14,6 +16,14 @@ class ArrangeDatabase(GroqRunTime):
 
     def load_data(self):
         with open('datasets/pp_nomor_30_tahun_2021.pdf.json', 'r') as json_r:
-            data = json.load(json_r)
-        print(data)
-        return data
+            datasets = json.load(json_r)
+        # print(data)
+        for i_data, data in enumerate(datasets):
+            user_prompt = USER_PROMPT_CLEAN_DATA.format(input_user = data['contents'])
+
+            response = self.generate_response(SYSTEM_PROMPT_CLEAN_DATA, user_prompt)
+
+            print(data['contents'])
+            print('-'*10)
+            print(response.choices[0].message.content)
+            sys.exit()
