@@ -19,11 +19,11 @@ class ArrangeDatabase(GroqRunTime):
             datasets = json.load(json_r)
         # print(data)
         for i_data, data in enumerate(datasets):
-            user_prompt = USER_PROMPT_CLEAN_DATA.format(input_user = data['contents'])
+            user_prompt = USER_PROMPT_CLEAN_DATA.format(input_user = data['content'])
 
             response = self.generate_response(SYSTEM_PROMPT_CLEAN_DATA, user_prompt)
 
-            print(data['contents'])
-            print('-'*10)
+            print(data['content'])
+            print('-'*50)
             print(response.choices[0].message.content)
             sys.exit()
