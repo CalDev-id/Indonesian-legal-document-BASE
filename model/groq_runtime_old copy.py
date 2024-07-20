@@ -1,7 +1,7 @@
 import requests
 import os
 
-from grog import Groq
+from groq import Groq
 
 #prepare the apiKey
 with open('apiKey.txt', 'r') as txt_r:
