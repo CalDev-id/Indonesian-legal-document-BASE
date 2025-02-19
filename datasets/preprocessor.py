@@ -26,7 +26,8 @@ class Preprocessor():
         #     encode_kwargs = {"normalize_embeddings": False}
         # )
 
-        self.database_save_dir = "datasets/database_{db_name}"
+        self.database_save_dir = "database_{db_name}"
+        
     def load_data(self):
         list_file_raw = os.listdir(self.raw_data_dir)
         for fl_raw in list_file_raw:
